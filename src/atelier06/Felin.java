@@ -1,23 +1,33 @@
 package atelier06;
 
+/** Création et gestion de félins */
 public class Felin extends Animal {
-    // Attribut spécifique à la classe Felin
-    protected boolean domestique = false;
+// ajout d'attributs propres à la sous-classe
+	protected boolean domestique = false;
 
-    // Constructeur de la classe Felin
-    public Felin(String espece, int nb_pattes) {
-        super(espece, nb_pattes); // Appelle le constructeur de la classe Animal
-    }
+	/**
+	 * le constructeur de Félins fait appel au constructeur de la sur-classe Animal
+	 */
+	public Felin(String type) { // les félins ont 4 pattes
+		super(type, 4);
+	}
 
-    // Implémentation de la méthode abstraite 'nom' de la classe Animal
-    @Override
-    public String nom() {
-        return espece; // Retourne le nom de l'espèce
-    }
+	/** présentation des caractéristiques du félin */
+	public void présente() {
+// appel de la méthode de la sur-classe
+		super.présente();
+		String etat = (domestique) ? "domestique" : "sauvage";
+		System.out.println("je suis vraiment un animal " + etat);
+	}
 
-    // Méthode spécifique à Felin
-    public void presente() {
-        String etat = domestique ? "domestique" : "sauvage";
-        System.out.println("Je suis un félin " + etat + " de l'espèce : " + espece);
-    }
+	/** cri du félin */
+	public void crie() {
+		String cri = (domestique) ? "miaule" : "rugis";
+		System.out.println("Je suis un félin et je " + cri);
+
+	}
+
+	public String nom() {
+		return null;
+	}
 }

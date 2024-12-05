@@ -1,30 +1,26 @@
 package atelier06;
 
 public class Chat extends Felin implements Domesticable {
-    private String nom;
+	
+	private String nom;
 
-    // Constructeur de la classe Chat
-    public Chat(String espece, int nb_pattes) {
-        super(espece, nb_pattes);
-    }
+	/** le constructeur de Chat fait appel au constructeur de la sur-classe Felin */
+	public Chat(String type) { // les chats ont 4 pattes
+		super(type);
+		domestiquer("Titus");
+	}
 
-    // Implémentation de la méthode domestiquer de l'interface
-    @Override
-    public void domestiquer(String nom) {
-        this.nom = nom;
-        this.domestique = true; // Change l'état à domestique
-    }
+	/** Domestiquer un animal et lui donner un nom
+	 * @param nom nom de l'animal */
+	public void domestiquer(String nom) {
+		domestique = true;
+		this.nom = nom;
+	}
 
-    // Implémentation de la méthode nom de l'interface
-    @Override
-    public String nom() {
-        return this.nom;
-    }
+	/** Rend le nom de l'animal
+	 * @return nom de l'animal */
+	public String nom() {
+		return nom;
+	}
 
-    // Redéfinir la méthode présente
-    @Override
-    public void presente() {
-        super.presente();
-        System.out.println("Je m'appelle " + nom + ".");
-    }
 }
